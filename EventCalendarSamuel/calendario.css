@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    scrollbar-width: thin;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    min-height: 96.7vh;
+    max-height: 96.7vh;
+    border: 15px solid rgb(216, 216, 216);
+    background: rgb(44, 44, 71);
+}
+
+#calendario {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 7;
+    color: gray;
+    background: whitesmoke;
+    margin: 1.7%;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+}
+
+#calendario h1 {
+    grid-row: 1 / 1;
+    text-align: center;
+    margin-top: 5%;
+    font-size: large;
+}
+
+#tablaCalendario {
+    margin: 2%;
+    width: 95%;
+    height: 95%;
+    grid-row: 2 / span 7;
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#tablaCalendario tr:not(tr:first-child) td {
+    border: solid 3px rgb(207, 207, 207);
+    transition: all 0.5s;
+}
+
+td[otroMes] {
+    background: rgb(226, 226, 226);
+}
+
+#informacionDia {
+    grid-column: 5 / span 3;
+    grid-row: 1 / span 7;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 3%;
+    margin-left: 0;
+}
+
+#dia {
+    grid-column: 1;
+    grid-row: 1 / 1;
+    align-self: center;
+    display: flex;
+    margin-left: 5%;
+    justify-content: space-between;
+}
+
+#dia h1{
+    color: white;
+}
+
+#dia p{
+    color: rgb(155, 155, 155);
+}
+
+#listaEventos {
+    grid-column: 1;
+    grid-row: 2 / span 3;
+    overflow: scroll;
+}
+
+#contenedorEvento, #contenedorModificarEvento {
+    grid-column: 1;
+    grid-row: 5 / span 3;
+}
+
+#volver {
+    grid-column: 1;
+    grid-row: 8 / 8;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 1%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    align-self: flex-end;
+    justify-self: flex-end;
+    font-style: none;
+    text-decoration: none;
+    border: 4px solid rgb(107, 107, 133);
+    color: rgb(107, 107, 133);
+    border-radius: 100px;
+    transition: all 0.5s;
+}
+
+#volver:hover {
+    scale: 110%;
+}
+
+.evento {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right, rgb(62, 65, 82) 1%, rgb(44,44,71) 90%);
+    width: 90%;
+    padding: 2%;
+    padding-left: 5%;
+    margin-bottom: 1%;
+}
+
+.evento .principal {
+    display: flex;
+    width: 100%;
+    color: white;
+}
+
+.principal button {
+    background: plum;
+    border: none;
+    width: 20px;
+    margin-right: 1%;
+    border-radius: 100px;
+}
+
+.evento .duracion {
+    margin-left: 4%;
+    color: rgb(155, 155, 155);
+    margin-top: 1%;
+}
+
+#contenedorEvento, #contenedorModificarEvento {
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+#contenedorEvento h1, #contenedorModificarEvento h1{
+    font-size: large;
+    margin: 1%;
+}
+
+#contenedorEvento form, #contenedorModificarEvento form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    justify-content: space-around;
+    height: 65%;
+}
+
+#contenedorEvento form input:not(#enviar), #contenedorModificarEvento form input:not(#modificar, #eliminar, #cancelar) {
+    font-size: medium;
+    border: none;
+    border-bottom: solid 2px rgb(182, 182, 182);
+    background: none;
+    width: 90%;
+    margin-left: 5%;
+    color: grey;
+}
+
+#contenedorModificarEvento {
+    visibility: hidden;
+}
+
+#contenedorModificarEvento div {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#enviar, #modificar, #eliminar, #cancelar {
+    margin-top: 5%;
+    width: fit-content;
+    align-self: center;
+    padding: 1%;
+    background: rgb(209, 133, 224);
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: all 0.5s;
+}
+
+#enviar:hover{
+    transition: all 0.5s;
+    scale: 110%;
+    box-shadow: 0 0 10px rgb(253, 212, 253);
+}
+
+#modificar:hover {
+    transition: all 0.5s;
+    background: rgb(57, 167, 57);
+    scale: 110%;
+    box-shadow: 0 0 10px rgb(224, 253, 212);
+}
+
+#eliminar:hover {
+    transition: all 0.5s;
+    background: rgb(167, 57, 57);
+    scale: 110%;
+    box-shadow: 0 0 10px rgb(253, 212, 212);
+}
+
+#cancelar:hover {
+    transition: all 0.5s;
+    background: rgb(190, 155, 59);
+    scale: 110%;
+    box-shadow: 0 0 10px rgb(253, 237, 212);
+}
+
+.complemento1 {
+    position: absolute;
+    top: 5%;
+    left: 6.5%;
+    background: rgb(192, 192, 192);
+    width: 50vw;
+    height: 90%;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.complemento2 {
+    position: absolute;
+    top: 6%;
+    left: 7%;
+    background: rgb(167, 167, 167);
+    width: 50vw;
+    height: 88%;
+    border-radius: 10px;
+    z-index: -2;
+}
+
+.conEvento {
+    color: rgb(209, 133, 224);
+    font-weight: bold;
+}
+
+td:not([otroMes]):hover {
+    transition: all 0.1s;
+    background: rgb(229, 210, 238);
+}
+
+td:not([otroMes])[seleccionado]{
+    transition: all 0.5s;
+    border: solid 3px rgb(209,133,244);
+    background: rgb(209,133,244);
+    color: whitesmoke;
+    box-shadow: 0 0 20px rgb(209,133,244);
+}
+
+.modificar:hover {
+    background: rgb(164, 164, 253);
+}
+
+#dia, #listaEventos, #contenedorEvento {
+    visibility: hidden;
+}

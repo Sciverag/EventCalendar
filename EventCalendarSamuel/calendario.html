@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <link rel="stylesheet" href="calendario.css">
+</head>
+<body>
+    <div id="calendario">
+        <h1>Octubre 2024</h1>
+        <table id="tablaCalendario">
+            <tr>
+                <th>Lun</th>
+                <th>Mar</th>
+                <th>Mie</th>
+                <th>Jue</th>
+                <th>Vie</th>
+                <th>Sab</th>
+                <th>Dom</th>
+            </tr>
+        </table>
+    </div>
+    <div id="informacionDia">
+        <div id="dia">
+            <h1>Miercoles</h1>
+            <p>30 de Octubre de 2024</p>
+        </div>
+        <div id="listaEventos">
+            
+        </div>
+        <div id="contenedorEvento">
+            <h1>Añadir Evento</h1>
+            <form>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre del Evento">
+                <input type="time" name="inicio" id="inicio" placeholder="Inicio del Evento">
+                <input type="time" name="final" id="final" placeholder="Final del Evento">
+                <input type="button" id="enviar" value="Añadir Evento">
+            </form>
+        </div>
+        <div id="contenedorModificarEvento">
+            <h1>Modificar Evento</h1>
+            <form>
+                <input type="text" name="nombre" id="nombreNuevo" placeholder="Nombre del Evento">
+                <input type="time" name="inicio" id="inicioNuevo" placeholder="Inicio del Evento">
+                <input type="time" name="final" id="finalNuevo" placeholder="Final del Evento">
+                <div>
+                    <input type="button" id="modificar" value="Modificar Evento">
+                    <input type="button" id="cancelar" value="Cancelar">
+                    <input type="button" id="eliminar" value="Eliminar Evento">
+                </div>
+            </form>
+        </div>
+        <a href="index.html" id="volver">←</a>
+    </div>
+    <div class="complemento1"></div>
+    <div class="complemento2"></div>
+
+    <script src="calendario.js"></script>
+</body>
+</html>
